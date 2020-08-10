@@ -51,14 +51,16 @@ class Qdelete(LoginRequiredMixin,DeleteView):
     success_url='/'
 
 def Qvote(request,id):
-    poll = Question.objects.get(id=id)
+    poll = Question.objects.get(pk=id)
     if request.method=='POST' :
         selected_option = request.POST['option']
         if "option1" == selected_option :
-            poll.option1 += 1
+            poll.option1votes += int(1)
         elif "option2" == selected_option :
-            poll.option2 +=1
+            poll.option2votes += int(1)
         elif "option3" == selected_option :
-            poll.option3 +=1
-    
+            poll.option3votes += int(1)
+
+        poll.save()
+        return redirect('qdetail',poll.id)    
     return render(request,'queans/qvote.html',{'poll':poll})

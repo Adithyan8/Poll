@@ -18,17 +18,27 @@
                 </div>
             </div>
             <br>
-            <a href="{% url 'qvote' object.id%}">
-            <br>
-            {% if object.author == request.user %}
-            <div class="row">
-                <div class="col col-2">
-                    <a href="{% url 'qupdate' object.id %}" class="btn btn-warning">Update Poll</a>
-                </div>
-                <div class="col col-2">
-                    <a href="{% url 'qdelete' object.id %}" class="btn btn-danger">Delete Poll</a>
-                </div>
+            <div>
+                <p>Total Votes :{{object.total_count}}</p>
+                <p>{{object.option1}} : {{object.option1votes}}</p>
+                <p>{{object.option2}} : {{object.option2votes}}</p>
+                <p>{{object.option3}} : {{object.option3votes}}</p>
             </div>
+            <br>
+            <a class="btn btn-primary" href="{% url 'qvote' object.id%}">Vote Now</a>
+            <br>
+            <hr>
+            {% if object.author == request.user %}
+                <h5>Modify your poll</h5>
+                <br>
+                <div class="row">
+                    <div class="col col-2">
+                        <a href="{% url 'qupdate' object.id %}" class="btn btn-warning">Update Poll</a>
+                    </div>
+                    <div class="col col-2">
+                        <a href="{% url 'qdelete' object.id %}" class="btn btn-danger">Delete Poll</a>
+                    </div>
+                </div>
             {% endif %}
         </div>
     </div>

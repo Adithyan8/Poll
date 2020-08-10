@@ -15,8 +15,12 @@ class Question(models.Model):
     option3votes = models.IntegerField(default=0)
     def get_absolute_url(self):
         return reverse("qdetail",kwargs={'pk':self.pk})
+
     def __str__(self):
         return self.pollq
+
+    def total_count(self):
+        return self.option1votes + self.option2votes + self.option3votes
 
 """ class OptionVote(models.Model):
     pollq = models.ForeignKey(Question,on_delete=models.CASCADE)

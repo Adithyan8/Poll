@@ -4,7 +4,8 @@
 <div class="container card">
     <form  method="POST">{%csrf_token%}
         {{form|crispy}}
-        <button>Update</button>
+        <button class="btn btn-success">Update</button>
     </form>
+    <br>
 </div>
 {% endblock content %}
