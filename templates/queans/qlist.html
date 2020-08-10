@@ -7,7 +7,8 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title"><a href="{% url 'qdetail' q.id %}">{{q.pollq}}</a></h5>
-                <small><em>{{q.author.username}}</em></small>
+                <small><em>Started By : {{q.author.username}}</em></small><br>
+                <small><em>{{q.date_posted}}</em></small>
             </div>
         </div>
         <br>

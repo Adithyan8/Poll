@@ -1,29 +1,34 @@
 {%extends 'base.html' %}
 {% block content %}
 <div class="container">
-    <div class="card">
-        <h1>Question {{object.pk}} :</h1>
+    <div class="card" >
+        <h1 style="margin-left:20px; margin-top:20px; text-decoration:underline ;">Question {{object.pk}} :</h1>
+        <small style="margin-left:20px"><em>Started By : {{object.author.username}}</em></small>
+        <small style="margin-left:20px"><em>{{object.date_posted}}</em></small>
         <div class="card-body">
             <h5 class="card-title">{{object.pollq}}</h5>
             <br>
-            <div class="row">
-                <div class="col col-4">
-                    <h5> 1. {{object.option1}}</h5>
-                </div>
-                <div class="col col-4">
-                    <h5> 2. {{object.option2}}</h5>
-                </div>
-                <div class="col col-4">
-                    <h5> 3. {{object.option3}}</h5>
-                </div>
-            </div>
-            <br>
-            <div>
-                <p>Total Votes :{{object.total_count}}</p>
-                <p>{{object.option1}} : {{object.option1votes}}</p>
-                <p>{{object.option2}} : {{object.option2votes}}</p>
-                <p>{{object.option3}} : {{object.option3votes}}</p>
-            </div>
+            <table class="table table-hover table-dark" >
+                <tbody>
+                    <tr>
+                    <th scope="row">{{object.option1}}</th>
+                    <td>{{object.option1votes}}</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">{{object.option2}}</th>
+                    <td>{{object.option2votes}}</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">{{object.option3}}</th>
+                    <td >{{object.option3votes}}</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Total Votes</th>
+                    <td >{{object.total_count}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
             <br>
             <a class="btn btn-primary" href="{% url 'qvote' object.id%}">Vote Now</a>
             <br>
