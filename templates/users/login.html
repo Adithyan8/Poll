@@ -1,0 +1,12 @@
+{%extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container card">
+    <legend>Log In</legend>
+    <form class="form-group" method="POST">{%csrf_token%}
+        {{form|crispy}}
+        <button class="btn btn-primary">Log In</button>
+    </form>
+    <small>Want to create an account? <a href="{% url 'register' %}">Click Here</a></small>
+</div>
+{% endblock content %}

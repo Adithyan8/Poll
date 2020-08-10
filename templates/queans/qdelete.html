@@ -1,0 +1,9 @@
+{%extends 'base.html' %}
+{% block content %}
+<div class="container card">
+    <form method="POST">{%csrf_token%}
+        <h1>Are you sure you want to delete "{{object}}" ?</h1>
+        <button class="btn btn-danger">Delete</button>
+    </form>
+</div>
+{% endblock content %}

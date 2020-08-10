@@ -1,0 +1,17 @@
+{%extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Current Polls</h2>
+    <br>
+    {% for q in que %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'qdetail' q.id %}">{{q.pollq}}</a></h5>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+    
+    <a href="{% url 'qcreate' %}" class="btn btn-success">Create a new Poll</a>
+</div>
+{% endblock content %}
