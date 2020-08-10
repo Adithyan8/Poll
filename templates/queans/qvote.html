@@ -1,0 +1,29 @@
+{%extends 'base.html' %}
+{% block content %}
+{%load crispy_forms_tags%}
+<div class="container card">
+    <h1>Question {{poll.pk}} :</h1>
+    <div class="card-body">
+        <h5 class="card-title">{{poll.pollq}}</h5>
+        <br>
+        <form method="POST">{% csrf_token %}
+            <div class="row">
+                <div class="col col-4">
+                    <input type="radio" name="option" value="option1"> 
+                    {{poll.option1}}
+                </div>
+                <div class="col col-4">
+                    <input type="radio" name="option" value="option2"> 
+                    {{poll.option2}}
+                </div>
+                <div class="col col-4">
+                    <input type="radio" name="option" value="option3"> 
+                    {{poll.option3}}
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-primary"> Vote </button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

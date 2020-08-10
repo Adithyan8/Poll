@@ -9,4 +9,5 @@ urlpatterns = [
     path('create',views.Qcreate.as_view(),name="qcreate"),
     path('<int:pk>/update/',views.Qupdate.as_view(),name="qupdate"),
     path('<int:pk>/delete/',views.Qdelete.as_view(),name="qdelete"),
+    path('<int:id>/vote/',views.Qvote,name="qvote"),
 ]

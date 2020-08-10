@@ -6,11 +6,21 @@
         <div class="card-body">
             <h5 class="card-title">{{object.pollq}}</h5>
             <br>
-            <ul>
-            {% for op in object.opt %}
-                <li>{{op.option}}</li>
-            {% endfor %}
-            </ul>
+            <div class="row">
+                <div class="col col-4">
+                    <h5> 1. {{object.option1}}</h5>
+                </div>
+                <div class="col col-4">
+                    <h5> 2. {{object.option2}}</h5>
+                </div>
+                <div class="col col-4">
+                    <h5> 3. {{object.option3}}</h5>
+                </div>
+            </div>
+            <br>
+            <a href="{% url 'qvote' object.id%}">
+            <br>
+            {% if object.author == request.user %}
             <div class="row">
                 <div class="col col-2">
                     <a href="{% url 'qupdate' object.id %}" class="btn btn-warning">Update Poll</a>
@@ -19,6 +29,7 @@
                     <a href="{% url 'qdelete' object.id %}" class="btn btn-danger">Delete Poll</a>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
